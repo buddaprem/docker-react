@@ -1,10 +1,7 @@
-
-sudo: 
-
 os: linux
 language: ruby
 dist: xenial
-
+sudo:
 
 services:
     - docker
