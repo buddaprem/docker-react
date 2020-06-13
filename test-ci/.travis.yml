@@ -1,7 +1,14 @@
-language: node_js
+os: linux
+language: ruby
+dist: xenial
+sudo: 
 
-node_js:
-- node
-- 'lts/*'
+services:
+    - docker
 
-cache: npm
+before_install:
+   - docker build -t buddaprem93/test-ci -f Dockerfile.dev .
+
+script:
+   - docker run buddaprem93/test-ci npm run test -- --coverage
+
